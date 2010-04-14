@@ -22,7 +22,7 @@ TARGET_PROVIDES_INIT_RC := true
 
 BOARD_GPS_LIBRARIES := libgps librpc
 BUILD_LIBCAMERA := true
-BOARD_CAMERA_LIBRARIES := libmmcamera
+BOARD_CAMERA_LIBRARIES := libmmcamera libmmcamera-target
 #USE_CAMERA_STUB:= true
 #BUILD_OLD_LIBCAMERA:=true
 BOARD_USES_QCOM_HARDWARE := true
