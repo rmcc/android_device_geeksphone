@@ -65,7 +65,9 @@ PRODUCT_PACKAGES := \
     GlobalTime \
     Bluetooth \
     AccountAndSyncSettings \
-    NotePad
+    NotePad \
+    Superuser \
+    CertInstaller
 
 # This is the list of locales included in AOSP builds
 PRODUCT_LOCALES := en_US en_GB fr_FR it_IT de_DE es_ES pt_PT ru_RU
@@ -86,7 +88,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_COPY_FILES += \
 	vendor/geeksphone/geeksphone-one/gps.conf:system/etc/gps.conf \
-	vendor/geeksphone/geeksphone-one/apns-conf.xml:system/etc/apns-conf.xml
+	vendor/geeksphone/geeksphone-one/apns-conf.xml:system/etc/apns-conf.xml \
+	vendor/geeksphone/geeksphone-one/spn-conf.xml:system/etc/spn-conf.xml
 
 
 # Pick up some sounds
