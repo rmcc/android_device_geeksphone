@@ -9,7 +9,7 @@ TARGET_BOOTLOADER_BOARD_NAME := qcom
 BOARD_KERNEL_CMDLINE := mem=32M@0x1A000000 mem=21M@0x1C000000 mem=32M@0x20000000 mem=32M@0x22000000 mem=32M@0x24000000 mem=32M@0x26000000 console=ttyMSM2,115200n8 androidboot.hardware=qcom
 
 #
-TARGET_HARDWARE_3D := true
+TARGET_HARDWARE_3D := false
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_KERNEL := false
@@ -30,3 +30,5 @@ BOARD_HAVE_BLUETOOTH := true
 
 ## We need the original supplicant to get the ar6k ioctls :(
 #BOARD_WPA_SUPPLICANT_DRIVER:=WEXT
+
+TARGET_ARCH_VARIANT := armv6
