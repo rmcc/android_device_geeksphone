@@ -30,5 +30,11 @@ ro.telephony.default_network = 0
 ro.telephony.call_ring.multiple=false
 ro.telephony.call_ring.delay=5000
 
+## Go back to default "fast" interpreter
+## No, this isn't another idiot setting a useless default,
+## the default intepreter in this dvm is JIT.
+## "fast" is half the speed of JIT, but much more stable...
+dalvik.vm.execution-mode=int:fast
+
 ### MOD Versioning
-ro.modversion = RCMod 2.0.5
+ro.modversion = RCMod 2.0.12

@@ -1,4 +1,3 @@
-
 on init
 
 sysclktz 0
@@ -44,7 +43,7 @@ loglevel 3
 # mount mtd partitions
     # Mount /system rw first to give the filesystem a chance to save a checkpoint
     mount yaffs2 mtd@system /system 
-#    mount yaffs2 mtd@system /system ro remount
+    mount yaffs2 mtd@system /system ro remount
 
     # We chown/chmod /data again so because mount is run as root + defaults
     mount yaffs2 mtd@userdata /data nosuid nodev
@@ -79,6 +78,7 @@ loglevel 3
     mkdir /data/misc/wifi 0770 wifi wifi
     chmod 0770 /data/misc/wifi
     chmod 0660 /data/misc/wifi/wpa_supplicant.conf
+    mkdir /data/misc/tscal 0770 system system
     mkdir /data/local 0771 shell shell
     mkdir /data/local/tmp 0771 shell shell
     mkdir /data/data 0771 system system
@@ -101,17 +101,17 @@ loglevel 3
     chown root root /cache/lost+found
     chmod 0770 /cache/lost+found
 
-    ###+++FIH_ADQ+++
+    mkdir /data/system 0771 system system
+
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
 
-    #endpoint (WIFI performance test) need following folder
-    mkdir /system/var
-    mkdir /system/var/local
-    mkdir /system/var/log
-    ###---FIH_ADQ---
+    # allow net_raw to have access to /dev/socket directory
+    chown root net_raw /dev/socket
+    chmod 0775 /dev/socket
+
 on boot
 # basic network init
     ifup lo
@@ -305,6 +305,10 @@ on boot
     insmod /system/lib/modules/ppp_mppe.ko
     ### TUN/TAP
     insmod /system/lib/modules/tun.ko
+    ### Compression for compcache
+    #insmod /system/lib/modules/lzo_compress.ko
+    #insmod /system/lib/modules/lzo_decompress.ko
+	
 ## --- RC
 
     class_start default
@@ -327,7 +331,7 @@ on property:persist.service.adb.enable=1
 
 on property:persist.service.adb.enable=0
     stop adbd
-    ln -s /dev/oncrpc/30000002:00010000 /dev/oncrpc/30000002:00010001
+    symlink /dev/oncrpc/30000002:00010000 /dev/oncrpc/30000002:00010001
 
 ### ++ RCMod - Start supplicant before system services so WifiService
 #              can use it...
@@ -367,20 +371,21 @@ service ril-daemon /system/bin/rild
     group radio cache inet misc audio
 
 service port-bridge /system/bin/port-bridge /dev/smd0 /dev/ttyHSUSB0 &   
+
 service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-system-server
     socket zygote stream 666
     onrestart write /sys/android_power/request_state wake   
-   onrestart write /sys/power/state on
+    onrestart write /sys/power/state on
     onrestart restart media
 
 service media /system/bin/mediaserver
     user media
     group system audio camera graphics inet net_bt net_bt_admin
 
-service bootsound /system/bin/playmp3
-    user media
-    group audio
-    oneshot
+#service bootsound /system/bin/playmp3
+#    user media
+#    group audio
+#    oneshot
 
 service bootanim /system/bin/bootanimation
     user graphics
@@ -393,7 +398,6 @@ service dbus /system/bin/dbus-daemon --system --nofork
     user bluetooth
     group bluetooth net_bt_admin
 
-#service hcid /system/bin/logwrapper /system/bin/hcid -s -n -f /etc/bluez/hcid.conf
 service bluetoothd /system/bin/bluetoothd -n
     socket bluetooth stream 660 bluetooth bluetooth
     socket dbus_bluetooth stream 660 bluetooth bluetooth
@@ -456,6 +460,7 @@ service keystore /system/bin/keystore /data/misc/keystore
 service dumpstate /system/bin/dumpstate -s
     socket dumpstate stream 0660 shell log
     disabled
+    oneshot
 
 ## FIH_ADQ, Kenny { 
 service logfile /system/bin/logfile -b -f /data/pmlog.log

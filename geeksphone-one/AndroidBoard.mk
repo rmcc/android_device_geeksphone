@@ -100,6 +100,44 @@ $(file) : $(LOCAL_PATH)/proprietary/libcm.so | $(ACP)
 
 ## End of RIL
 
+## camera and openmax
+file := $(TARGET_OUT)/lib/libmm-adspsvc.so
+ALL_PREBUILT += $(file)
+$(file) : $(LOCAL_PATH)/proprietary/libmm-adspsvc.so | $(ACP)
+	$(transform-prebuilt-to-target)
+
+file := $(TARGET_OUT)/lib/libmmcamera.so
+ALL_PREBUILT += $(file)
+$(file) : $(LOCAL_PATH)/proprietary/libmmcamera.so | $(ACP)
+	$(transform-prebuilt-to-target)
+
+file := $(TARGET_OUT)/lib/libmmcamera_target.so
+ALL_PREBUILT += $(file)
+$(file) : $(LOCAL_PATH)/proprietary/libmmcamera_target.so | $(ACP)
+	$(transform-prebuilt-to-target)
+
+file := $(TARGET_OUT)/lib/libmmjpeg.so
+ALL_PREBUILT += $(file)
+$(file) : $(LOCAL_PATH)/proprietary/libmmjpeg.so | $(ACP)
+	$(transform-prebuilt-to-target)
+
+file := $(TARGET_OUT)/lib/libOmxH264Dec.so
+ALL_PREBUILT += $(file)
+$(file) : $(LOCAL_PATH)/proprietary/libOmxH264Dec.so | $(ACP)
+	$(transform-prebuilt-to-target)
+
+file := $(TARGET_OUT)/lib/libOmxMpeg4Dec.so
+ALL_PREBUILT += $(file)
+$(file) : $(LOCAL_PATH)/proprietary/libOmxMpeg4Dec.so | $(ACP)
+	$(transform-prebuilt-to-target)
+
+file := $(TARGET_OUT)/lib/libOmxVidEnc.so
+ALL_PREBUILT += $(file)
+$(file) : $(LOCAL_PATH)/proprietary/libOmxVidEnc.so | $(ACP)
+	$(transform-prebuilt-to-target)
+
+## End of camera and openmax
+
 ## Binary keychar maps
 
 file := $(TARGET_OUT_KEYCHARS)/stmpe1601.kcm.bin
@@ -109,13 +147,9 @@ $(file) : $(LOCAL_PATH)/stmpe1601.kcm.bin | $(ACP)
 
 file := $(TARGET_OUT_KEYCHARS)/qwerty.kcm.bin
 ALL_PREBUILT += $(file)
-$(file) : $(LOCAL_PATH)/qwerty.kcm.bin | $(ACP)
+$(file) : $(LOCAL_PATH)/stmpe1601.kcm.bin | $(ACP)
 	$(transform-prebuilt-to-target)
 
-file := $(TARGET_OUT_KEYCHARS)/qwerty2.kcm.bin
-ALL_PREBUILT += $(file)
-$(file) : $(LOCAL_PATH)/qwerty2.kcm.bin | $(ACP)
-	$(transform-prebuilt-to-target)
 file := $(INSTALLED_KERNEL_TARGET)
 ALL_PREBUILT += $(file)
 $(file): $(TARGET_PREBUILT_KERNEL) | $(ACP)
@@ -144,7 +178,7 @@ $(file) : $(LOCAL_PATH)/init.qcom.sh | $(ACP)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE := vold.conf
+LOCAL_MODULE := vold.fstab
 LOCAL_SRC_FILES := $(LOCAL_MODULE)
 include $(BUILD_PREBUILT)
 
@@ -162,78 +196,29 @@ LOCAL_MODULE_CLASS := ETC
 LOCAL_SRC_FILES := proprietary/$(LOCAL_MODULE)
 include $(BUILD_PREBUILT)
 
+include $(CLEAR_VARS)
+LOCAL_MODULE := eeprom.data
+LOCAL_MODULE_TAGS := user
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := proprietary/$(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := eeprom.bin
+LOCAL_MODULE_TAGS := user
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := proprietary/$(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := init.qcom.bt.sh
+LOCAL_MODULE_TAGS := user
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := proprietary/$(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/compat-1.5/logfile:system/bin/logfile
-
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/compat-1.5/port-bridge:system/bin/port-bridge
-
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/compat-1.5/wpa_supplicant:system/bin/wpa_supplicant
-
-## This is necessary if you want the magic auto-switch to c001 in
-# the usb composite device... I don't care about it :)
-# 
-# Well... reimplemented anyway
-#PRODUCT_COPY_FILES += \
-#	$(LOCAL_PATH)/proprietary/vold:system/bin/vold
-
-
-
-### We need the old opencore to get video hardware accel...
-#file := $(TARGET_OUT)/lib/libopencoreauthor.so
-#ALL_PREBUILT += $(file)
-#$(file) : $(LOCAL_PATH)/opencore-old/libopencoreauthor.so | $(ACP)
-#        $(transform-prebuilt-to-target)
-#
-#file := $(TARGET_OUT)/lib/libopencorecommon.so
-#ALL_PREBUILT += $(file)
-#$(file) : $(LOCAL_PATH)/opencore-old/libopencorecommon.so | $(ACP)
-#        $(transform-prebuilt-to-target)
-#
-#file := $(TARGET_OUT)/lib/libopencoredownloadreg.so
-#ALL_PREBUILT += $(file)
-#$(file) : $(LOCAL_PATH)/opencore-old/libopencoredownloadreg.so | $(ACP)
-#        $(transform-prebuilt-to-target)
-#
-#file := $(TARGET_OUT)/lib/libopencoredownload.so
-#ALL_PREBUILT += $(file)
-#$(file) : $(LOCAL_PATH)/opencore-old/libopencoredownload.so | $(ACP)
-#        $(transform-prebuilt-to-target)
-#
-#file := $(TARGET_OUT)/lib/libopencorehw.so
-#ALL_PREBUILT += $(file)
-#$(file) : $(LOCAL_PATH)/opencore-old/libopencorehw.so | $(ACP)
-#        $(transform-prebuilt-to-target)
-#
-#file := $(TARGET_OUT)/lib/libopencoremp4reg.so
-#ALL_PREBUILT += $(file)
-#$(file) : $(LOCAL_PATH)/opencore-old/libopencoremp4reg.so | $(ACP)
-#        $(transform-prebuilt-to-target)
-#
-#file := $(TARGET_OUT)/lib/libopencoremp4.so
-#ALL_PREBUILT += $(file)
-#$(file) : $(LOCAL_PATH)/opencore-old/libopencoremp4.so | $(ACP)
-#        $(transform-prebuilt-to-target)
-#
-#file := $(TARGET_OUT)/lib/libopencorenet_support.so
-#ALL_PREBUILT += $(file)
-#$(file) : $(LOCAL_PATH)/opencore-old/libopencorenet_support.so | $(ACP)
-#        $(transform-prebuilt-to-target)
-#
-#file := $(TARGET_OUT)/lib/libopencoreplayer.so
-#ALL_PREBUILT += $(file)
-#$(file) : $(LOCAL_PATH)/opencore-old/libopencoreplayer.so | $(ACP)
-#        $(transform-prebuilt-to-target)
-#
-#file := $(TARGET_OUT)/lib/libopencorertspreg.so
-#ALL_PREBUILT += $(file)
-#$(file) : $(LOCAL_PATH)/opencore-old/libopencorertspreg.so | $(ACP)
-#        $(transform-prebuilt-to-target)
-
-#file := $(TARGET_OUT)/lib/libopencorertsp.so
-#ALL_PREBUILT += $(file)
-#$(file) : $(LOCAL_PATH)/opencore-old/libopencorertsp.so | $(ACP)
-#        $(transform-prebuilt-to-target)
 
 

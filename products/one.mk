@@ -21,7 +21,6 @@ PRODUCT_PACKAGES := \
     AlarmProvider \
     ApplicationsProvider \
     Browser \
-    Bugreport \
     Calculator \
     Calendar \
     CalendarProvider \
@@ -32,13 +31,12 @@ PRODUCT_PACKAGES := \
     DownloadProvider \
     DrmProvider \
     Email \
-    FieldTest \
     Gallery \
     GlobalSearch \
     GoogleSearch \
     HTMLViewer \
     LatinIME \
-    Launcher \
+    Launcher2 \
     MediaProvider \
     Mms \
     Music \
@@ -63,11 +61,34 @@ PRODUCT_PACKAGES := \
     Stk \
     framework-res \
     GlobalTime \
+    QuickSearchBox \
     Bluetooth \
     AccountAndSyncSettings \
     NotePad \
     Superuser \
-    CertInstaller
+    CertInstaller \
+    LiveWallpapersPicker \
+    LiveWallpapers \
+    Protips \
+    libRS \
+    librs_jni
+
+## Binaries
+
+PRODUCT_PACKAGES += \
+    ssh \
+    scp \
+    hcidump \
+    hciconfig \
+    hcitool \
+    openvpn \
+    flash_image \
+    tcpdump \
+    sqlite3
+
+PRODUCT_SPECIFIC_DEFINES += TARGET_OTA_SCRIPT_MODE=edify
+
+TINY_TOOLBOX:=true
 
 # This is the list of locales included in AOSP builds
 PRODUCT_LOCALES := en_US en_GB fr_FR it_IT de_DE es_ES pt_PT ru_RU
@@ -83,13 +104,43 @@ PRODUCT_DEVICE := geeksphone-one
 PRODUCT_MODEL := Geeksphone ONE
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
+    ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
+    ro.com.google.clientidbase=android-google \
+    ro.com.android.wifi-watchlist=GoogleGuest \
+    ro.setupwizard.enterprise_mode=1 \
 	ro.com.android.dateformat=dd-MM-yyyy \
 	ro.com.android.dataroaming=true 
 
+# Configuration
+#
 PRODUCT_COPY_FILES += \
 	vendor/geeksphone/geeksphone-one/gps.conf:system/etc/gps.conf \
 	vendor/geeksphone/geeksphone-one/apns-conf.xml:system/etc/apns-conf.xml \
-	vendor/geeksphone/geeksphone-one/spn-conf.xml:system/etc/spn-conf.xml
+	vendor/geeksphone/geeksphone-one/spn-conf.xml:system/etc/spn-conf.xml \
+	vendor/geeksphone/geeksphone-one/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
+	vendor/geeksphone/geeksphone-one/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+	frameworks/base/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
+	frameworks/base/data/etc/android.hardware.touchscreen.xml:system/etc/permissions/android.hardware.touchscreen.xml \
+	frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+	frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+	frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+	frameworks/base/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+	frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
+
+## Scripts and packages
+PRODUCT_COPY_FILES += \
+    vendor/geeksphone/geeksphone-one/prebuilt/openvpn-up.sh:system/xbin/openvpn-up.sh \
+    vendor/geeksphone/geeksphone-one/prebuilt/bootanimation.zip:system/media/bootanimation.zip \
+    vendor/geeksphone/geeksphone-one/prebuilt/RCUpdater.apk:system/app/RCUpdater.apk \
+    vendor/geeksphone/geeksphone-one/prebuilt/Tether.apk:system/app/Tether.apk
+
+
+## Libraries and proprietary binaries
+PRODUCT_COPY_FILES += \
+	vendor/geeksphone/geeksphone-one/proprietary/libgps.so:obj/lib/libgps.so \
+	vendor/geeksphone/geeksphone-one/proprietary/libgps.so:system/lib/libgps.so \
+	vendor/geeksphone/geeksphone-one/proprietary/hci_qcomm_init:system/bin/hci_qcomm_init
 
 
 # Pick up some sounds
