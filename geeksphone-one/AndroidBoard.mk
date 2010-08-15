@@ -217,8 +217,3 @@ LOCAL_MODULE_CLASS := ETC
 LOCAL_SRC_FILES := proprietary/$(LOCAL_MODULE)
 include $(BUILD_PREBUILT)
 
-
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/compat-1.5/logfile:system/bin/logfile
-
-

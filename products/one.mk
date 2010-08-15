@@ -70,6 +70,7 @@ PRODUCT_PACKAGES := \
     LiveWallpapersPicker \
     LiveWallpapers \
     Protips \
+    RCUpdater \
     libRS \
     librs_jni
 
@@ -84,6 +85,7 @@ PRODUCT_PACKAGES += \
     openvpn \
     flash_image \
     tcpdump \
+    rzscontrol \
     sqlite3
 
 PRODUCT_SPECIFIC_DEFINES += TARGET_OTA_SCRIPT_MODE=edify
@@ -131,8 +133,8 @@ PRODUCT_COPY_FILES += \
 ## Scripts and packages
 PRODUCT_COPY_FILES += \
     vendor/geeksphone/geeksphone-one/prebuilt/openvpn-up.sh:system/xbin/openvpn-up.sh \
+    vendor/geeksphone/geeksphone-one/prebuilt/compcache:system/xbin/compcache \
     vendor/geeksphone/geeksphone-one/prebuilt/bootanimation.zip:system/media/bootanimation.zip \
-    vendor/geeksphone/geeksphone-one/prebuilt/RCUpdater.apk:system/app/RCUpdater.apk \
     vendor/geeksphone/geeksphone-one/prebuilt/Tether.apk:system/app/Tether.apk
 
 

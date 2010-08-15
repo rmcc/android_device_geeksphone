@@ -1,0 +1,21 @@
+#!/system/bin/sh
+
+getprop persist.service.ccache.enable | grep 1 || exit
+
+stop_compcache () {
+	swapoff /dev/block/ramzswap0
+	rzscontrol /dev/block/ramzswap0 --reset
+	exit 0
+}
+
+start_compcache () {
+	rzscontrol /dev/block/ramzswap0 --init
+	swapon /dev/block/ramzswap0 
+}
+
+trap "stop_compcache" TERM INT
+
+start_compcache
+
+exit 0
+
