@@ -106,6 +106,7 @@ PRODUCT_DEVICE := geeksphone-one
 PRODUCT_MODEL := Geeksphone ONE
 
 PRODUCT_PROPERTY_OVERRIDES += \
+	media.stagefright.enable-player=false \
     ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
     ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
     ro.com.google.clientidbase=android-google \
@@ -134,12 +135,17 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/geeksphone/geeksphone-one/prebuilt/openvpn-up.sh:system/xbin/openvpn-up.sh \
     vendor/geeksphone/geeksphone-one/prebuilt/compcache:system/xbin/compcache \
+    vendor/geeksphone/geeksphone-one/prebuilt/backuptool.sh:system/bin/backuptool.sh \
     vendor/geeksphone/geeksphone-one/prebuilt/bootanimation.zip:system/media/bootanimation.zip \
-    vendor/geeksphone/geeksphone-one/prebuilt/Tether.apk:system/app/Tether.apk
+    vendor/geeksphone/geeksphone-one/prebuilt/Tether.apk:system/app/Tether.apk \
+    vendor/geeksphone/geeksphone-one/prebuilt/WaveSecure.apk:system/app/WaveSecure.apk
 
 
 ## Libraries and proprietary binaries
 PRODUCT_COPY_FILES += \
+	vendor/geeksphone/geeksphone-one/proprietary/data.patch.hw2_0.bin:system/etc/wifi/fw/data.patch.hw2_0.bin \
+	vendor/geeksphone/geeksphone-one/proprietary/eeprom.bin:system/etc/wifi/fw/eeprom.bin \
+	vendor/geeksphone/geeksphone-one/proprietary/athwlan.bin.z77:system/etc/wifi/fw/athwlan.bin.z77 \
 	vendor/geeksphone/geeksphone-one/proprietary/libgps.so:obj/lib/libgps.so \
 	vendor/geeksphone/geeksphone-one/proprietary/libgps.so:system/lib/libgps.so \
 	vendor/geeksphone/geeksphone-one/proprietary/hci_qcomm_init:system/bin/hci_qcomm_init

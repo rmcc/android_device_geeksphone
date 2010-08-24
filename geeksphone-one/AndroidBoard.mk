@@ -11,16 +11,6 @@ ALL_PREBUILT += $(file)
 $(file) : $(LOCAL_PATH)/stmpe1601.kl | $(ACP)
 	$(transform-prebuilt-to-target)
 
-file := $(TARGET_OUT_KEYLAYOUT)/qwerty.kl
-ALL_PREBUILT += $(file)
-$(file) : $(LOCAL_PATH)/qwerty.kl | $(ACP)
-	$(transform-prebuilt-to-target)
-
-file := $(TARGET_OUT_KEYLAYOUT)/AVRCP.kl
-ALL_PREBUILT += $(file)
-$(file) : $(LOCAL_PATH)/AVRCP.kl | $(ACP)
-	$(transform-prebuilt-to-target)
-
 ## RIL from cupcake
 
 file := $(TARGET_OUT)/lib/libril-qc-1.so
@@ -145,11 +135,6 @@ ALL_PREBUILT += $(file)
 $(file) : $(LOCAL_PATH)/stmpe1601.kcm.bin | $(ACP)
 	$(transform-prebuilt-to-target)
 
-file := $(TARGET_OUT_KEYCHARS)/qwerty.kcm.bin
-ALL_PREBUILT += $(file)
-$(file) : $(LOCAL_PATH)/stmpe1601.kcm.bin | $(ACP)
-	$(transform-prebuilt-to-target)
-
 file := $(INSTALLED_KERNEL_TARGET)
 ALL_PREBUILT += $(file)
 $(file): $(TARGET_PREBUILT_KERNEL) | $(ACP)
@@ -180,34 +165,6 @@ include $(CLEAR_VARS)
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE := vold.fstab
 LOCAL_SRC_FILES := $(LOCAL_MODULE)
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := data.patch.hw2_0.bin
-LOCAL_MODULE_TAGS := user
-LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES := proprietary/$(LOCAL_MODULE)
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := athwlan.bin.z77
-LOCAL_MODULE_TAGS := user
-LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES := proprietary/$(LOCAL_MODULE)
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := eeprom.data
-LOCAL_MODULE_TAGS := user
-LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES := proprietary/$(LOCAL_MODULE)
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := eeprom.bin
-LOCAL_MODULE_TAGS := user
-LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES := proprietary/$(LOCAL_MODULE)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
