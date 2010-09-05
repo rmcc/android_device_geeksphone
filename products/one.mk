@@ -53,7 +53,6 @@ PRODUCT_PACKAGES := \
     SyncProvider \
     TelephonyProvider \
     TtsService \
-    Updater \
     UserDictionaryProvider \
     VoiceDialer \
     VpnServices \

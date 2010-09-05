@@ -30,12 +30,8 @@ ro.telephony.default_network = 0
 ro.telephony.call_ring.multiple=false
 ro.telephony.call_ring.delay=5000
 
-## Go back to "fast" interpreter
-# No, this isn't another idiot setting a useless default,
-# the default intepreter in this dvm is JIT.
-# "fast" is half the speed of JIT, but more stable, and JIT can
-# be enabled in SpareParts
-dalvik.vm.execution-mode=int:fast
+## Go back to "jit" interpreter
+dalvik.vm.execution-mode=int:jit
 
 ## Increase dalvik heapsize a bit
 dalvik.vm.heapsize=18m
