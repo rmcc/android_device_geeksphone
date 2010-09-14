@@ -87,8 +87,6 @@ PRODUCT_PACKAGES += \
     rzscontrol \
     sqlite3
 
-PRODUCT_SPECIFIC_DEFINES += TARGET_OTA_SCRIPT_MODE=edify
-
 TINY_TOOLBOX:=true
 
 # This is the list of locales included in AOSP builds
@@ -98,7 +96,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	keyguard.no_require_sim=true
 PRODUCT_NAME := geeksphone_one
 PRODUCT_BRAND := geeksphone
-PRODUCT_MANUFACTURER := commtiva
+PRODUCT_MANUFACTURER := FIH
 PRODUCT_DEVICE := geeksphone-one
 
 # The user-visible product name
@@ -107,9 +105,15 @@ PRODUCT_MODEL := Geeksphone ONE
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
     ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
-    ro.com.google.clientidbase=android-google \
+    ro.com.google.clientidbase=android-fih \
+    ro.com.google.clientidbase.yt=android-fih \
+    ro.com.google.clientidbase.am=android-fih \
+    ro.com.google.clientidbase.vs=android-fih \
+    ro.com.google.clientidbase.gmm=android-fih \
+	ro.com.google.locationfeatures=1 \
+	ro.com.google.networklocation=1 \
     ro.com.android.wifi-watchlist=GoogleGuest \
-    ro.setupwizard.enterprise_mode=1 \
+	ro.setupwizard.mode=OPTIONAL \
 	ro.com.android.dateformat=dd-MM-yyyy \
 	ro.com.android.dataroaming=true 
 

@@ -36,6 +36,9 @@ dalvik.vm.execution-mode=int:jit
 ## Increase dalvik heapsize a bit
 dalvik.vm.heapsize=18m
 
+## Use just the data partition for cache
+dalvik.vm.dexopt-data-only=1
+
 ### MOD Versioning
 ro.modversion = RCMod 3.0
 
