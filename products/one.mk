@@ -120,11 +120,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Configuration
 #
 PRODUCT_COPY_FILES += \
-	vendor/geeksphone/geeksphone-one/gps.conf:system/etc/gps.conf \
-	vendor/geeksphone/geeksphone-one/apns-conf.xml:system/etc/apns-conf.xml \
-	vendor/geeksphone/geeksphone-one/spn-conf.xml:system/etc/spn-conf.xml \
-	vendor/geeksphone/geeksphone-one/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
-	vendor/geeksphone/geeksphone-one/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+	device/geeksphone/geeksphone-one/gps.conf:system/etc/gps.conf \
+	device/geeksphone/geeksphone-one/apns-conf.xml:system/etc/apns-conf.xml \
+	device/geeksphone/geeksphone-one/spn-conf.xml:system/etc/spn-conf.xml \
+	device/geeksphone/geeksphone-one/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
+	device/geeksphone/geeksphone-one/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
 	frameworks/base/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
 	frameworks/base/data/etc/android.hardware.touchscreen.xml:system/etc/permissions/android.hardware.touchscreen.xml \
 	frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
@@ -135,22 +135,22 @@ PRODUCT_COPY_FILES += \
 
 ## Scripts and packages
 PRODUCT_COPY_FILES += \
-    vendor/geeksphone/geeksphone-one/prebuilt/openvpn-up.sh:system/xbin/openvpn-up.sh \
-    vendor/geeksphone/geeksphone-one/prebuilt/compcache:system/xbin/compcache \
-    vendor/geeksphone/geeksphone-one/prebuilt/backuptool.sh:system/bin/backuptool.sh \
-    vendor/geeksphone/geeksphone-one/prebuilt/bootanimation.zip:system/media/bootanimation.zip \
-    vendor/geeksphone/geeksphone-one/prebuilt/Tether.apk:system/app/Tether.apk \
-    vendor/geeksphone/geeksphone-one/prebuilt/WaveSecure.apk:system/app/WaveSecure.apk
+    device/geeksphone/geeksphone-one/prebuilt/openvpn-up.sh:system/xbin/openvpn-up.sh \
+    device/geeksphone/geeksphone-one/prebuilt/compcache:system/xbin/compcache \
+    device/geeksphone/geeksphone-one/prebuilt/backuptool.sh:system/bin/backuptool.sh \
+    device/geeksphone/geeksphone-one/prebuilt/bootanimation.zip:system/media/bootanimation.zip \
+    device/geeksphone/geeksphone-one/prebuilt/Tether.apk:system/app/Tether.apk \
+    device/geeksphone/geeksphone-one/prebuilt/WaveSecure.apk:system/app/WaveSecure.apk
 
 
 ## Libraries and proprietary binaries
 PRODUCT_COPY_FILES += \
-	vendor/geeksphone/geeksphone-one/proprietary/data.patch.hw2_0.bin:system/etc/wifi/fw/data.patch.hw2_0.bin \
-	vendor/geeksphone/geeksphone-one/proprietary/eeprom.bin:system/etc/wifi/fw/eeprom.bin \
-	vendor/geeksphone/geeksphone-one/proprietary/athwlan.bin.z77:system/etc/wifi/fw/athwlan.bin.z77 \
-	vendor/geeksphone/geeksphone-one/proprietary/libgps.so:obj/lib/libgps.so \
-	vendor/geeksphone/geeksphone-one/proprietary/libgps.so:system/lib/libgps.so \
-	vendor/geeksphone/geeksphone-one/proprietary/hci_qcomm_init:system/bin/hci_qcomm_init
+	device/geeksphone/geeksphone-one/proprietary/data.patch.hw2_0.bin:system/etc/wifi/fw/data.patch.hw2_0.bin \
+	device/geeksphone/geeksphone-one/proprietary/eeprom.bin:system/etc/wifi/fw/eeprom.bin \
+	device/geeksphone/geeksphone-one/proprietary/athwlan.bin.z77:system/etc/wifi/fw/athwlan.bin.z77 \
+	device/geeksphone/geeksphone-one/proprietary/libgps.so:obj/lib/libgps.so \
+	device/geeksphone/geeksphone-one/proprietary/libgps.so:system/lib/libgps.so \
+	device/geeksphone/geeksphone-one/proprietary/hci_qcomm_init:system/bin/hci_qcomm_init
 
 
 # Pick up some sounds
