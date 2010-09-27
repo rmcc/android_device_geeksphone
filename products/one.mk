@@ -154,4 +154,4 @@ PRODUCT_COPY_FILES += \
 
 
 # Pick up some sounds
-include frameworks/base/data/sounds/OriginalAudio.mk
+include frameworks/base/data/sounds/AudioPackage4.mk
