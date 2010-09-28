@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+DEVICE_PACKAGE_OVERLAYS := device/geeksphone/geeksphone-one/overlay
+
 $(call inherit-product, build/target/product/generic.mk)
 
 # This is the list of apps to include in the build
