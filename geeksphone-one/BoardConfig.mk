@@ -41,3 +41,6 @@ TARGET_HAVE_TSLIB:=true
 ENABLE_JSC_JIT:=true
 BUILD_IPTABLES:=1
 BUILD_WITH_FULL_STAGEFRIGHT:=true
+
+## Generate descriptive build.id
+DISPLAY_BUILD_NUMBER := true
