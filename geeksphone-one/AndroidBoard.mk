@@ -152,11 +152,6 @@ ALL_PREBUILT += $(file)
 $(file) : $(LOCAL_PATH)/init.qcom.rc | $(ACP)
 	$(transform-prebuilt-to-target)
 
-file := $(TARGET_ROOT_OUT)/init.qcom.sh
-ALL_PREBUILT += $(file)
-$(file) : $(LOCAL_PATH)/init.qcom.sh | $(ACP)
-	$(transform-prebuilt-to-target)
-
 
 # This will install the file in /system/etc
 #
