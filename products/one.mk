@@ -33,6 +33,7 @@ PRODUCT_PACKAGES := \
     DownloadProvider \
     DrmProvider \
     Email \
+    FileManager \
     Gallery \
     GlobalSearch \
     GoogleSearch \
