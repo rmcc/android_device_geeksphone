@@ -140,10 +140,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/geeksphone/geeksphone-one/prebuilt/openvpn-up.sh:system/xbin/openvpn-up.sh \
     device/geeksphone/geeksphone-one/prebuilt/compcache:system/xbin/compcache \
-    device/geeksphone/geeksphone-one/prebuilt/backuptool.sh:system/bin/backuptool.sh \
+    device/geeksphone/geeksphone-one/prebuilt/backuptool.sh:system/bin/backuptool.sh
+## Only add these to releases
+ifeq ($(TARGET_BUILD_VARIANT),user)
+PRODUCT_COPY_FILES += \
     device/geeksphone/geeksphone-one/prebuilt/bootanimation.zip:system/media/bootanimation.zip \
     device/geeksphone/geeksphone-one/prebuilt/Tether.apk:system/app/Tether.apk \
     device/geeksphone/geeksphone-one/prebuilt/WaveSecure.apk:system/app/WaveSecure.apk
+endif
 
 
 ## Libraries and proprietary binaries
