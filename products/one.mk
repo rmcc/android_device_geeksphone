@@ -140,7 +140,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/geeksphone/geeksphone-one/prebuilt/openvpn-up.sh:system/xbin/openvpn-up.sh \
     device/geeksphone/geeksphone-one/prebuilt/compcache:system/xbin/compcache \
-    device/geeksphone/geeksphone-one/prebuilt/backuptool.sh:system/bin/backuptool.sh
+    device/geeksphone/geeksphone-one/prebuilt/backuptool.sh:system/bin/backuptool.sh \
+    device/geeksphone/geeksphone-one/prebuilt/updatesupplicant.sh:system/xbin/updatesupplicant.sh
 ## Only add these to releases
 ifeq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_COPY_FILES += \
