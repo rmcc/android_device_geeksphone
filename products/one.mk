@@ -30,6 +30,7 @@ PRODUCT_PACKAGES := \
     Contacts \
     ContactsProvider \
     DeskClock \
+    DefaultContainerService \
     DownloadProvider \
     DrmProvider \
     Email \
