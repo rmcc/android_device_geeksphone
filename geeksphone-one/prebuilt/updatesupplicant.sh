@@ -1,5 +1,6 @@
 #!/system/bin/sh
 
+rm -rf /data/system/wpa_supplicant/
 grep -q "ctrl_interface=DIR" /data/misc/wifi/wpa_supplicant.conf
 if [ $? -ne 0 ]; then
 	echo "Nothing to do"
