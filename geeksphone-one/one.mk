@@ -16,7 +16,7 @@
 
 DEVICE_PACKAGE_OVERLAYS := device/geeksphone/geeksphone-one/overlay
 
-$(call inherit-product, build/target/product/generic.mk)
+$(call inherit-product, device/geeksphone/common/common.mk)
 
 # This is the list of apps to include in the build
 PRODUCT_PACKAGES := \
@@ -99,9 +99,8 @@ PRODUCT_LOCALES := en_US en_GB fr_FR it_IT de_DE es_ES pt_PT ru_RU
 PRODUCT_PROPERTY_OVERRIDES += \
 	keyguard.no_require_sim=true
 PRODUCT_NAME := geeksphone_one
-PRODUCT_BRAND := geeksphone
-PRODUCT_MANUFACTURER := FIH
 PRODUCT_DEVICE := geeksphone-one
+PRODUCT_MANUFACTURER := FIH
 
 # The user-visible product name
 PRODUCT_MODEL := Geeksphone ONE
