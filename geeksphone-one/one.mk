@@ -74,6 +74,7 @@ PRODUCT_PACKAGES := \
     LiveWallpapers \
     Protips \
     RCUpdater \
+    Tether \
     libRS \
     librs_jni
 
@@ -146,7 +147,6 @@ PRODUCT_COPY_FILES += \
 ifeq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_COPY_FILES += \
     device/geeksphone/geeksphone-one/prebuilt/bootanimation.zip:system/media/bootanimation.zip \
-    device/geeksphone/geeksphone-one/prebuilt/Tether.apk:system/app/Tether.apk \
     device/geeksphone/geeksphone-one/prebuilt/WaveSecure.apk:system/app/WaveSecure.apk
 endif
 
